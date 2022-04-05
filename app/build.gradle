@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -60,9 +61,9 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:2.4.1"
 
     // Koin
-    implementation "org.koin:koin-android:1.1.1"
-    implementation "org.koin:koin-androidx-viewmodel:1.1.1"
-    androidTestImplementation "org.koin:koin-test:1.1.1"
+    implementation "org.koin:koin-android:2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
+    androidTestImplementation "org.koin:koin-test:2.0.1"
 
     // Jetpack Compose
     implementation "androidx.compose.runtime:runtime:1.1.1"
@@ -105,4 +106,6 @@ dependencies {
     // Room
     implementation "androidx.room:room-runtime:2.4.2"
     kapt "androidx.room:room-compiler:2.4.2"
+
+
 }
