@@ -25,11 +25,11 @@ enum class Screen {
     OrderCoffeeDrinks
 }
 
-sealed class Coffee_Screen(val route: String) {
+/**sealed class Coffee_Screen(val route: String) {
     object CoffeeDrinks: Coffee_Screen("CoffeeDrinks")
     object CoffeeDrinkDetails: Coffee_Screen("CoffeeDrinkDetails")
     object  OrderCoffeeDrinks:Coffee_Screen(" OrderCoffeeDrinks")
-}
+}**/
 
 /**@ExperimentalAnimationApi
 @Composable

@@ -10,6 +10,7 @@ import com.example.coffee_themesandtypography.ui.screen.coffee_Detail.mapper.Cof
 import com.example.coffee_themesandtypography.ui.screen.coffee_Detail.model.CoffeeDrinkDetail
 import com.example.coffee_themesandtypography.ui.screen.coffee_Detail.model.CoffeeDrinkDetailState
 import com.example.coffee_themesandtypography.ui.state.UiState
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 

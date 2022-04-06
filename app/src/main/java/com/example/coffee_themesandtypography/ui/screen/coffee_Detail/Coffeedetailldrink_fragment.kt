@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
+
+
 
 
 import com.example.coffee_themesandtypography.R
@@ -18,16 +17,13 @@ import com.example.coffee_themesandtypography.data.CoffeeDrinkRepository
 import com.example.coffee_themesandtypography.ui.navigation.Screen
 import com.example.coffee_themesandtypography.ui.navigation.navigateToPreviousScreen
 import com.example.coffee_themesandtypography.ui.screen.coffee_Detail.mapper.CoffeeDrinkDetailMapper
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.coffee_themesandtypography.ui.state.UiState
 import com.example.coffee_themesandtypography.ui.theme.CoffeeThemesAndTypographyTheme
+import androidx.compose.runtime.livedata.observeAsState as observeAsState
 
-
-/**class CoffeeDrinkDetailsFragment : Fragment() {
-    private val viewModel: CoffeeDrinkDetailsViewModel = CoffeeDrinkDetailsViewModel(
-
-
-        )
+class CoffeeDrinkDetailsFragment : Fragment() {
+    private val viewModel: CoffeeDrinkDetailsViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +38,7 @@ import com.example.coffee_themesandtypography.ui.theme.CoffeeThemesAndTypography
             )
 
             setContent {
-               CoffeeThemesAndTypographyTheme {
+             CoffeeThemesAndTypographyTheme {
                     viewModel.uiState.observeAsState(initial = UiState.Loading).value.let { uiState ->
                         when (uiState) {
                             is UiState.Loading -> {
@@ -75,4 +71,3 @@ import com.example.coffee_themesandtypography.ui.theme.CoffeeThemesAndTypography
         viewModel.loadCoffeeDrinkDetails(arguments?.getLong("id") ?: -1)
     }
 }
-**/

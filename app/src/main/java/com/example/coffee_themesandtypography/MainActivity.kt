@@ -2,34 +2,24 @@ package com.example.coffee_themesandtypography
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.coffee_themesandtypography.ui.theme.CoffeeThemesAndTypographyTheme
-import dagger.hilt.android.HiltAndroidApp
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+
+import com.google.android.material.navigation.NavigationView
+
+
 
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            CoffeeThemesAndTypographyTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    CoffeeDrinksApp()
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
+        navView.setupWithNavController(navController)
     }
 }
+
 

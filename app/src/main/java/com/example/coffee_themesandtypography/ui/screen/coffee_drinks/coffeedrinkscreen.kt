@@ -19,9 +19,7 @@ import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+
 import com.example.coffee_themesandtypography.R
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.model.CoffeeDrinkItem
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.model.CoffeeDrinksState

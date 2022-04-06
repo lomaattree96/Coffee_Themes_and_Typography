@@ -1,31 +1,24 @@
-@file:JvmName("KoinTest")
 package com.example.coffee_themesandtypography
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
-
-
+import com.example.coffee_themesandtypography.di.dataModule
+import com.example.coffee_themesandtypography.di.mapperModule
+import com.example.coffee_themesandtypography.di.viewModelModule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import java.util.logging.Level
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
-//import org.koin.android.ext.koin.androidContext
-//import org.koin.android.ext.koin.androidLogger
-//import org.koin.core.context.startKoin
-//import org.koin.core.logger.Level
-
-//0
-
-@HiltAndroidApp
+@ExperimentalCoroutinesApi
 class CoffeeDrinksApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        //initDI()
+        initDI()
     }
-}
 
-   /** private fun initDI() {
+    private fun initDI() {
         startKoin {
             androidLogger(Level.ERROR)
             androidContext(this@CoffeeDrinksApp)
@@ -39,5 +32,3 @@ class CoffeeDrinksApp : Application() {
         }
     }
 }
-
-**/

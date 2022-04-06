@@ -1,13 +1,16 @@
 package com.example.coffee_themesandtypography.data.order
 
 
+import com.example.coffee_themesandtypography.data.CoffeeDrink
 import com.example.coffee_themesandtypography.data.CoffeeDrinkDataSource
+import com.example.coffee_themesandtypography.data.CoffeeDrinkRepository
+import com.example.coffee_themesandtypography.data.DummyCoffeeDrinksDataSource
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 
-class RuntimeOrderCoffeeRepo(
+class RuntimeOrderCoffeeDrinksRepository(
     private val coffeeDrinkDataSource: CoffeeDrinkDataSource,
     private val orderCoffeeDrinkMapper: OrderCoffeeDrinkMapper
 ) : OrderCoffeeDrinksRepository {
@@ -19,23 +22,15 @@ class RuntimeOrderCoffeeRepo(
     private val coffeeDrinks = mutableListOf<OrderCoffeeDrink>()
 
     override suspend fun getCoffeeDrinks(): Flow<List<OrderCoffeeDrink>> {
-
-        return flowOf(coffeeDrinks)
-        //return flow {
-        //    if (coffeeDrinks.isEmpty())
-             //   coffeeDrinks.addAll(
-                  //  orderCoffeeDrinkMapper.map(coffeeDrinkDataSource.getCoffeeDrinks())
-             //   )
-
-
-        //emit(coffeeDrinks)
-
-
-        //   return flowOf(coffeeDrinks)
-        //  emit(coffeeDrinks)
-
+        return flow {
+            if (coffeeDrinks.isEmpty()) {
+                coffeeDrinks.addAll(
+                    orderCoffeeDrinkMapper.map(coffeeDrinkDataSource.getCoffeeDrinks())
+                )
+            }
+            emit(coffeeDrinks)
+        }
     }
-
 
     override suspend fun add(coffeeDrinkId: Long): Flow<Boolean> {
         return flow {
@@ -43,7 +38,7 @@ class RuntimeOrderCoffeeRepo(
             val result = if (index > -1) {
                 val coffeeDrink = coffeeDrinks[index]
                 val newValue =
-                    if (coffeeDrink.count == (MAX_VALUE)) MAX_VALUE else coffeeDrink.count + 1
+                    if (coffeeDrink.count == MAX_VALUE) MAX_VALUE else coffeeDrink.count + 1
                 coffeeDrinks[index] = coffeeDrink.copy(count = newValue)
                 true
             } else {
@@ -69,5 +64,3 @@ class RuntimeOrderCoffeeRepo(
         }
     }
 }
-
-
