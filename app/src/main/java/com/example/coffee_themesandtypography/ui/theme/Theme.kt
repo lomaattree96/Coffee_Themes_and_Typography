@@ -44,6 +44,7 @@ private val LightColorPalette = lightColors(
     */
 )
 
+@SuppressWarnings
 @Composable
 fun CoffeeThemesAndTypographyTheme(
     //darkTheme: Boolean = isSystemInDarkTheme(),

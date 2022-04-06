@@ -2,10 +2,11 @@ package com.example.coffee_themesandtypography.data
 
 import kotlinx.coroutines.flow.Flow
 
-interface CoffeeDrinkRepo {
-    suspend fun getCoffeeDrinks() :Flow<List<Coffee_Drinks>>
+interface CoffeeDrinkRepository {
 
-    suspend fun getCoffeeDrinks(id:Long) :Flow<Coffee_Drinks?>
+    suspend fun getCoffeeDrinks(): Flow<List<CoffeeDrink>>
+
+    suspend fun getCoffeeDrink(id: Long): Flow<CoffeeDrink?>
 
     suspend fun updateFavouriteState(id: Long, newFavouriteState: Boolean): Flow<Boolean>
 }

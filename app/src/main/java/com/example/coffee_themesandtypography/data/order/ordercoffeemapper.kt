@@ -1,21 +1,22 @@
 package com.example.coffee_themesandtypography.data.order
 
-import com.example.coffee_themesandtypography.data.Coffee_Drinks
+import com.example.coffee_themesandtypography.data.CoffeeDrink
 
-class Ordercoffeemapper{
 
-    fun map(coffeeDrink: Coffee_Drinks, count: Int = 0): Order_Coffee_Drinks {
-        return Order_Coffee_Drinks(
+class OrderCoffeeDrinkMapper {
+
+    fun map(coffeeDrink: CoffeeDrink, count: Int = 0): OrderCoffeeDrink {
+        return OrderCoffeeDrink(
             id = coffeeDrink.id,
             name = coffeeDrink.name,
-            imageURL = coffeeDrink.imageURL,
+            imageUrl = coffeeDrink.imageUrl,
             ingredients = coffeeDrink.ingredients,
             price = coffeeDrink.price,
             count = count
         )
     }
 
-    fun map(coffeeDrinks: List<Coffee_Drinks>, count: Int = 0): List<Order_Coffee_Drinks> {
+    fun map(coffeeDrinks: List<CoffeeDrink>, count: Int = 0): List<OrderCoffeeDrink> {
         return coffeeDrinks.map { map(it, count) }
     }
 }

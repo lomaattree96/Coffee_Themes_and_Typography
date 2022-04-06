@@ -1,19 +1,25 @@
-package com.example.coffee_themesandtypography.data
+package com.example.coffee_themesandtypography.data.repo
+
+import com.example.coffee_themesandtypography.data.*
+
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import javax.inject.Inject
 
-object RuntimeCoffeeDrinkRepository : CoffeeDrinkRepo{
-    private val coffeeDrinks: MutableList<Coffee_Drinks> = initCoffeeDrinks()
+class RuntimeCoffeeDrinkRepository: CoffeeDrinkRepository{
+    private val coffeeDrinks: MutableList<CoffeeDrink> = initCoffeeDrinks()
 
-    override suspend fun getCoffeeDrinks(): Flow<List<Coffee_Drinks>> {
-        return flowOf(coffeeDrinks)
+    override suspend fun getCoffeeDrinks(): Flow<List<CoffeeDrink>> {
+        return flowOf(initCoffeeDrinks())
     }
 
-    override suspend fun getCoffeeDrinks(id: Long): Flow<Coffee_Drinks?> {
+    override suspend fun getCoffeeDrink(id: Long): Flow<CoffeeDrink?> {
         return flowOf(
             coffeeDrinks.firstOrNull { it.id == id }
+
+
         )
     }
 
@@ -22,7 +28,7 @@ object RuntimeCoffeeDrinkRepository : CoffeeDrinkRepo{
             val position = coffeeDrinks.indexOfFirst { it.id == id }
             val result = if (position > -1) {
                 val oldCoffeeDrink = coffeeDrinks.first { it.id == id }
-                val newCoffeeDrink = oldCoffeeDrink.copy(isFav = newFavouriteState)
+                val newCoffeeDrink = oldCoffeeDrink.copy(isFavourite = newFavouriteState)
                 coffeeDrinks.remove(oldCoffeeDrink)
                 coffeeDrinks.add(position, newCoffeeDrink)
                 true
@@ -31,9 +37,11 @@ object RuntimeCoffeeDrinkRepository : CoffeeDrinkRepo{
             }
             emit(result)
         }
+
     }
 
-    private fun initCoffeeDrinks(): MutableList<Coffee_Drinks> {
-        return Dummydata().getCoffeeDrinks() as MutableList<Coffee_Drinks>
+
+    private fun initCoffeeDrinks(): MutableList<CoffeeDrink> {
+        return DummyCoffeeDrinksDataSource().getCoffeeDrinks() as MutableList<CoffeeDrink>
     }
 }

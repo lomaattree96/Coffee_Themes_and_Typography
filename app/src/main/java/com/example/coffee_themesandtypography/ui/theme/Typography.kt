@@ -72,7 +72,7 @@ private val appFontFamily = FontFamily(
     )
 )
 
-private val defaultTypography = Typography
+private val defaultTypography = Typography()
 val appTypography = Typography(
     h1 = defaultTypography.h1.copy(fontFamily = appFontFamily),
     h2 = defaultTypography.h2.copy(fontFamily = appFontFamily),
