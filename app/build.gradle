@@ -53,24 +53,24 @@ android {
 dependencies {
     implementation "androidx.core:core-ktx:1.7.0"
     implementation "androidx.appcompat:appcompat:1.4.1"
-    implementation "androidx.constraintlayout:constraintlayout:2.1.3"
+  //  implementation "androidx.constraintlayout:constraintlayout:2.1.3"
     // To use constraintlayout in compose
-    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
+  //  implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
-    implementation "androidx.fragment:fragment-ktx:2.4.1"
+   // implementation "androidx.fragment:fragment-ktx:2.4.1"
 
     // Koin
 
-    implementation "org.koin:koin-android:2.2.2"
-    implementation "org.koin:koin-android-viewmodel:2.2.2"
-    implementation "org.koin:koin-android:2.2.2"
-    implementation "org.koin:koin-androidx-viewmodel:2.2.2"
-    androidTestImplementation "org.koin:koin-test:2.2.2"
+  //  implementation "org.koin:koin-android:2.2.2"
+   // implementation "org.koin:koin-android-viewmodel:2.2.2"
+   // implementation "org.koin:koin-android:2.2.2"
+ //   implementation "org.koin:koin-androidx-viewmodel:2.2.2"
+ //   androidTestImplementation "org.koin:koin-test:2.2.2"
 
     // Jetpack Compose
     implementation "androidx.compose.runtime:runtime:1.1.1"
@@ -83,7 +83,7 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling:1.1.1"
     implementation "androidx.compose.runtime:runtime-livedata:1.1.1"
     implementation "androidx.navigation:navigation-compose:2.4.1"
-    implementation "androidx.constraintlayout:constraintlayout-compose:2.4.1"
+   // implementation "androidx.constraintlayout:constraintlayout-compose:2.4.1"
 
     // Local testing dependencies
     testImplementation "junit:junit:4.13.2"
@@ -99,7 +99,7 @@ dependencies {
     androidTestImplementation "io.mockk:mockk-android:1.10.6"
 
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.1.1"
-    debugImplementation "androidx.fragment:fragment-testing:1.4.1"
+   // debugImplementation "androidx.fragment:fragment-testing:1.4.1"
     debugImplementation "androidx.test:core:1.4.0"
 
     //Dagger - Hilt

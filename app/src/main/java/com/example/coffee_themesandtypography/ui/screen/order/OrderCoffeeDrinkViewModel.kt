@@ -23,15 +23,15 @@ class OrderCoffeeDrinkViewModel(
         viewModelScope.launch {
             _uiState.value = UiState.Loading
             repository.getCoffeeDrinks()
-                .collect { ccoffeeDrinks ->
-                    val totalCount = ccoffeeDrinks
+                .collect { coffeeDrinks ->
+                    val totalCount = coffeeDrinks
                         .filter { it.count  > 0}
                         .map { it.count * it.price }
                         .sum()
 
                     _uiState.value = UiState.Success(
                         OrderCoffeeDrinkState(
-                            coffeeDrinks = ccoffeeDrinks,
+                            coffeeDrinks = coffeeDrinks,
                             totalPrice = BigDecimal(totalCount)
                         )
                     )

@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.example.coffee_themesandtypography.R
 
 @Composable
-fun Fav(
+fun Favourite(
     state: Boolean,
     modifier: Modifier = Modifier,
     onValueChanged: (Boolean) -> Unit,

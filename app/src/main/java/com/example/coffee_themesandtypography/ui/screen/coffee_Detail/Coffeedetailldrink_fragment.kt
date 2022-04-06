@@ -7,25 +7,27 @@ import android.view.ViewGroup
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
+
 
 import com.example.coffee_themesandtypography.R
+import com.example.coffee_themesandtypography.data.CoffeeDrinkRepository
+
 
 import com.example.coffee_themesandtypography.ui.navigation.Screen
 import com.example.coffee_themesandtypography.ui.navigation.navigateToPreviousScreen
+import com.example.coffee_themesandtypography.ui.screen.coffee_Detail.mapper.CoffeeDrinkDetailMapper
 
 import com.example.coffee_themesandtypography.ui.state.UiState
 import com.example.coffee_themesandtypography.ui.theme.CoffeeThemesAndTypographyTheme
-import dagger.hilt.android.lifecycle.HiltViewModel
-import androidx.lifecycle.ViewModel as ViewModel
+
 
 /**class CoffeeDrinkDetailsFragment : Fragment() {
-    private val viewModel: CoffeeDrinkDetailsViewModel
-        get() {
-            CoffeeDrinkDetailsViewModel(
-                repository = CoffeeDrinkRepository,
-                mapper =  CoffeeDrinkDetailMapper
-            )
-        }
+    private val viewModel: CoffeeDrinkDetailsViewModel = CoffeeDrinkDetailsViewModel(
+
+
+        )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +42,7 @@ import androidx.lifecycle.ViewModel as ViewModel
             )
 
             setContent {
-                CoffeeThemesAndTypographyTheme {
+               CoffeeThemesAndTypographyTheme {
                     viewModel.uiState.observeAsState(initial = UiState.Loading).value.let { uiState ->
                         when (uiState) {
                             is UiState.Loading -> {

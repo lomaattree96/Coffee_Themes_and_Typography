@@ -92,7 +92,7 @@ fun Fragment.navigate(from: Screen, to: Screen, bundle: Bundle? = null) {
     if (bundle == null) {
         findNavController().navigate(id)
     } else {
-        findNavController().navigate(id)
+        findNavController().navigate(id, Bundle())
     }
 }
 
@@ -101,19 +101,17 @@ fun Fragment.navigateToPreviousScreen(from: Screen, to: Screen) {
     findNavController().popBackStack(id, false)
 }
 
-private fun mapScreenToId(from: Screen, to: Screen):String {
+private fun mapScreenToId(from: Screen, to: Screen):Int {
     if (to == from) {
         throw IllegalArgumentException("Cannot navigate from $from to $to")
     }
 
 
     return when (to) {
-        Screen.CoffeeDrinks -> Coffee_Screen.CoffeeDrinkDetails.route
-               // Screen.CoffeeDrinks -> R.id.CoffeeDrinksFragment
-        Screen.CoffeeDrinkDetails ->Coffee_Screen.CoffeeDrinkDetails.route
-            //R.id.CoffeeDrinkDetailsFragment
-        Screen.OrderCoffeeDrinks ->  Coffee_Screen.OrderCoffeeDrinks.route
-            //R.id.OrderCoffeeDrinkFragment
+
+        Screen.CoffeeDrinks -> R.id.coffeeDrinksFragment
+        Screen.CoffeeDrinkDetails ->   R.id.coffeeDrinkDetailsFragment
+        Screen.OrderCoffeeDrinks ->    R.id.orderCoffeeDrinkFragment
     }
 }
 

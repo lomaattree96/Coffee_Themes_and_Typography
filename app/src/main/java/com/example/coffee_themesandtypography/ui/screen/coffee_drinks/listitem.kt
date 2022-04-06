@@ -22,9 +22,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.coffee_themesandtypography.data.DummyCoffeeDrinksDataSource
+import com.example.coffee_themesandtypography.ui.component.AppDivider
+import com.example.coffee_themesandtypography.ui.component.Favourite
 
-import com.example.coffee_themesandtypography.ui.component.App_Divider
-import com.example.coffee_themesandtypography.ui.component.Fav
+
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.mapper.CoffeeDrinkItemMapper
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.model.CoffeeDrinkItem
 import com.example.coffee_themesandtypography.ui.theme.appTypography
@@ -36,7 +37,7 @@ private val COFFEE_DRINK_IMAGE_SIZE = 72.dp
 fun PreviewListItem() {
     val mapper = CoffeeDrinkItemMapper()
     val coffeeDrink = mapper.map(
-       DummyCoffeeDrinksDataSource().getCoffeeDrinks().first()
+        DummyCoffeeDrinksDataSource().getCoffeeDrinks().first()
     )
 
     MaterialTheme(colors = lightColors(), typography = appTypography) {
@@ -57,7 +58,7 @@ fun CoffeeDrinkList(
             coffeeDrink = coffeeDrink,
             onFavouriteStateChanged = { onFavouriteStateChanged(it) }
         )
-        App_Divider(PaddingValues(start = COFFEE_DRINK_IMAGE_SIZE))
+        AppDivider(PaddingValues(start = COFFEE_DRINK_IMAGE_SIZE))
     }
 }
 
@@ -134,7 +135,7 @@ private fun CoffeeDrinkFavouriteIcon(
     favouriteState: Boolean,
     onValueChanged: (Boolean) -> Unit
 ) {
-    Fav(
+    Favourite(
         state = favouriteState,
         onValueChanged = onValueChanged,
         tint = tint

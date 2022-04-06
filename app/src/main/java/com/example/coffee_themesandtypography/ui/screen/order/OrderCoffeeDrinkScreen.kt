@@ -41,10 +41,10 @@ import androidx.compose.ui.unit.dp
 
 import com.example.coffee_themesandtypography.R
 import com.example.coffee_themesandtypography.data.order.OrderCoffeeDrink
+import com.example.coffee_themesandtypography.ui.component.AppDivider
 
-import com.example.coffee_themesandtypography.ui.component.App_Divider
 import com.example.coffee_themesandtypography.ui.component.Counter
-import com.example.coffee_themesandtypography.ui.navigation.Coffee_Screen
+
 
 import com.example.coffee_themesandtypography.ui.screen.order.model.OrderCoffeeDrinkState
 
@@ -59,7 +59,6 @@ fun ShowLoadingOrderCoffeeDrinksScreen() {
         )
     }
 }
-
 
 @Composable
 fun ShowSuccessOrderCoffeeDrinksScreen(
@@ -78,16 +77,16 @@ fun ShowSuccessOrderCoffeeDrinksScreen(
                     Column {
                         OrderCoffeeDrinkItem(
                             orderCoffeeDrink = coffeeDrink,
-                            onAdded = { coffeeDrinkId -> viewModel.addDrink(coffeeDrinkId) }
-                        ) { coffeeDrinkId -> viewModel.removeDrink(coffeeDrinkId) }
-                        App_Divider(PaddingValues(start = 72.dp))
+                            onAdded = { coffeeDrinkId -> viewModel.addDrink(coffeeDrinkId) },
+                            onRemoved = { coffeeDrinkId -> viewModel.removeDrink(coffeeDrinkId) }
+                        )
+                        AppDivider(PaddingValues(start = 72.dp))
                     }
                 }
             }
         }
     }
 }
-
 
 @Composable
 fun ShowErrorOrderCoffeeDrinksScreen() {
@@ -121,7 +120,6 @@ private fun AppBar(
     )
 }
 
-
 @Composable
 fun OrderCoffeeDrinkItem(
     orderCoffeeDrink: OrderCoffeeDrink,
@@ -141,8 +139,7 @@ fun OrderCoffeeDrinkItem(
                     Text(
                         text = orderCoffeeDrink.name,
                         style = MaterialTheme.typography.h6,
-                        modifier = Modifier
-                            .padding(bottom = 8.dp)
+                        modifier = Modifier.padding(bottom = 8.dp)
                             .fillMaxWidth()
                     )
                     Text(
@@ -154,8 +151,7 @@ fun OrderCoffeeDrinkItem(
                 }
             }
             Box(
-                modifier = Modifier
-                    .width(120.dp)
+                modifier = Modifier.width(120.dp)
                     .padding(start = 8.dp)
             ) {
                 Column {
@@ -176,8 +172,6 @@ fun OrderCoffeeDrinkItem(
         }
     }
 }
-
-
 
 @Composable
 private fun Logo(

@@ -11,5 +11,5 @@ data class OrderCoffeeDrink(
     val description: String,
     val price: Double,
     // TODO: should be immutable
-    var count: Int
+    var count: MutableState<Int> = mutableStateOf(0)
 )

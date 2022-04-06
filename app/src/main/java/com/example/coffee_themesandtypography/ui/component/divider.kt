@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 
 
 @Composable
-fun App_Divider(
+fun AppDivider(
     padding:PaddingValues = PaddingValues()
 ){
     Divider(

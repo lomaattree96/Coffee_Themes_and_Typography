@@ -37,18 +37,13 @@ fun ShowSuccessCoffeeDrinksScreen(
     coffeeDrinksState: CoffeeDrinksState,
     viewModel: CoffeeDrinksViewModel,
     onOrderCoffeeDrinksMenuItem: () -> Unit,
-    onCoffeeDrinkClicked: (CoffeeDrinkItem) -> Unit,
-    navController: NavController
+    onCoffeeDrinkClicked: (CoffeeDrinkItem) -> Unit
 ) {
     CoffeeDrinksScreenUI(
-
-
         coffeeDrinksState = coffeeDrinksState,
         viewModel = viewModel,
         onOrderCoffeeDrinksMenuItem,
-        onCoffeeDrinkClicked,
-      //  navController = NavController
-
+        onCoffeeDrinkClicked
     )
 }
 
@@ -57,16 +52,14 @@ fun ShowErrorCoffeeDrinksScreen() {
     // TODO: implement it
 }
 
+
 @Composable
 fun CoffeeDrinksScreenUI(
-
     coffeeDrinksState: CoffeeDrinksState,
-    viewModel: CoffeeDrinksViewModel = hiltViewModel(),
+    viewModel: CoffeeDrinksViewModel,
     onOrderCoffeeDrinksMenuItem: () -> Unit,
-    onCoffeeDrinkClicked: (CoffeeDrinkItem) -> Unit,
-  //  navController: NavController,
+    onCoffeeDrinkClicked: (CoffeeDrinkItem) -> Unit
 ) {
- //   val navController = rememberNavController()
     Surface {
         Column {
             CoffeeDrinkAppBar(
@@ -131,7 +124,7 @@ fun CoffeeDrinkList(
     onFavouriteStateChanged: (CoffeeDrinkItem) -> Unit
 ) {
     LazyColumn {
-        items(items= coffeeDrinksState.coffeeDrinks) { coffeeDrink ->
+        items(items = coffeeDrinksState.coffeeDrinks) { coffeeDrink ->
             Box(
                 modifier = Modifier.clickable(
                     onClick = {
@@ -156,4 +149,3 @@ fun CoffeeDrinkList(
         }
     }
 }
-

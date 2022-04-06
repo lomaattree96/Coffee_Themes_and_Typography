@@ -22,7 +22,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.coffee_themesandtypography.data.DummyCoffeeDrinksDataSource
-import com.example.coffee_themesandtypography.ui.component.Fav
+
+import com.example.coffee_themesandtypography.ui.component.Favourite
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.mapper.CoffeeDrinkItemMapper
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.model.CoffeeDrinkItem
 import com.example.coffee_themesandtypography.ui.theme.appTypography
@@ -165,7 +166,7 @@ private fun CoffeeDrinkFavouriteIcon(
     favouriteState: Boolean,
     onValueChanged: (Boolean) -> Unit
 ) {
-    Fav(
+    Favourite(
         state = favouriteState,
         modifier = Modifier.alpha(0.78f),
         onValueChanged = onValueChanged,

@@ -14,7 +14,7 @@ import com.example.coffee_themesandtypography.ui.theme.CoffeeThemesAndTypography
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@HiltAndroidApp
+
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
