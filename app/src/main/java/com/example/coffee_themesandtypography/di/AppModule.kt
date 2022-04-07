@@ -18,7 +18,7 @@ import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.CoffeeDrin
 import com.example.coffee_themesandtypography.ui.screen.coffee_drinks.mapper.CoffeeDrinkItemMapper
 import com.example.coffee_themesandtypography.ui.screen.order.OrderCoffeeDrinkViewModel
 
-val dataModule = module {
+ val dataModule = module {
     factory<CoffeeDrinkDataSource> { DummyCoffeeDrinksDataSource() }
     single<CoffeeDrinkRepository> { RuntimeCoffeeDrinkRepository }
     single<OrderCoffeeDrinksRepository> {

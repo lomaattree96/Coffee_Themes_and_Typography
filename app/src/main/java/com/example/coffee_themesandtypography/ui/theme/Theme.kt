@@ -1,5 +1,6 @@
 package com.example.coffee_themesandtypography.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
@@ -7,9 +8,10 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
+@SuppressLint("ConflictingOnColor")
 private val DarkColorPalette = darkColors(
     primary = Color(0xFF1F1F1F),
-    primaryVariant = Color(0xFF3E2723),
+    primaryVariant = Color(0XFF663E34),
     secondary = Color(0xFF03DAC5),
     background = Color(0xFF121212),
     surface = Color.Black,

@@ -99,7 +99,7 @@ fun CoffeeDrinkAppBar(
                         ImageBitmap.imageResource(id = if (displayingOption == DisplayingOptions.CARDS) R.drawable.ic_list_white else R.drawable.ic_extended_list_white)
                     ),
                     contentDescription = stringResource(R.string.action_show_detailed_cards),
-                    tint = MaterialTheme.colors.onPrimary
+                    tint = MaterialTheme.colors.error
                 )
             }
             IconButton(
@@ -107,7 +107,7 @@ fun CoffeeDrinkAppBar(
             ) {
                 Icon(
                     painter = BitmapPainter(ImageBitmap.imageResource(id = R.drawable.ic_order_white)),
-                    tint = MaterialTheme.colors.onPrimary,
+                    tint = MaterialTheme.colors.error,
                     contentDescription = stringResource(R.string.action_order_coffee_drinks)
                 )
             }
